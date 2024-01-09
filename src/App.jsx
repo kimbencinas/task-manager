@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './Components/Sidebar'
 import MainContent from './Components/MainContent'
-import SideContent from './Components/SideContent'
+import Calendar from './Components/Calendar'
 import './App.css';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
         <div className='app'>
             <Sidebar />
             <MainContent />
-            <SideContent />
+            <Calendar />
         </div>
     );
 }
