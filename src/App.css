@@ -1,3 +1,15 @@
 .app {
   display: flex;
 }
+
+.content-container {
+  background-color: rgb(241, 241, 241);
+}
+
+.main-content {
+  background-color: rgb(180, 180, 180);
+}
+
+.sidebar {
+  background-color: rgb(202, 202, 202);
+}

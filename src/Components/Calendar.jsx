@@ -14,6 +14,13 @@ export default function MyCalendar() {
             <div className='calendar-container'>
                 <Calendar onChange={onChange} value={date} />
             </div>
+            <div className='scheduled-container'>
+                <h4>Scheduled</h4>
+                <div className='scheduled-events'>
+
+                    <button type="button">View all</button>
+                </div>
+            </div>
         </div>
     );
 }
