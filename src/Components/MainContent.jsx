@@ -15,11 +15,12 @@ export default function MainContent() {
     }, []);
 
     return (
-        <div className="app flex">
-            <div className="main-content bg-gray-300 pt-4">
+        <div>
+            <div className="main-content flex p-8">
                 <h1 className='current-day-title'>Today's Tasks</h1>
-                <h3 className='todays-date'>{currentDate}</h3>
+                <button className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto">Create task</button>
             </div>
+            <h3 className="todays-date ml-6">{currentDate}</h3>
         </div>
     );
 }
