@@ -19,11 +19,11 @@ export default function MyCalendar() {
                     className="rounded-md p-2"
                 />
             </div>
-            <div className='scheduled-container'>
-                <h4>Scheduled</h4>
+            <div className='scheduled-container p-4'>
+                <h4 className="mt-3 mb-2">Scheduled</h4>
                 <ScheduledEvents eventName="Go to concert" eventDate="January 8th" />
                 <ScheduledEvents eventName="Meet with client" eventDate="January 9th" />
-                <p className="text-blue-500">View all</p>
+                <p className="text-blue-500 ml-40 mt-4">View all</p>
             </div>
         </div>
     );

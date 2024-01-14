@@ -16,11 +16,11 @@ export default function MainContent() {
 
     return (
         <div>
-            <div className="main-content flex p-8">
-                <h1 className='current-day-title'>Today's Tasks</h1>
+            <div className="main-content flex p-8 text-2xl">
+                <h1 className='current-day-title font-medium'>Today's Tasks</h1>
                 <button className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto">Create task</button>
             </div>
-            <h3 className="todays-date ml-6">{currentDate}</h3>
+            <h3 className="todays-date ml-8 mb-2 text-lg">{currentDate}</h3>
         </div>
     );
 }
