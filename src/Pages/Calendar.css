@@ -1,0 +1,25 @@
+.react-calendar {
+    background-color: transparent;
+}
+
+.react-calendar__tile abbr {
+    color: black;
+}
+
+.react-calendar__month-view__days__day:hover,
+.react-calendar__month-view__days__day:active {
+    background-color: lightblue !important;
+    border-radius: 100% !important;
+}
+
+.react-calendar__navigation__arrow {
+    display: none;
+}
+
+.react-calendar .react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+    margin-right: 100px;
+}
+
+.react-calendar__navigation__label--from {
+    margin-top: 20px;
+}

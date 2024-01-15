@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import ScheduledEvents from '../Components/ScheduledEvents';
 import 'react-calendar/dist/Calendar.css';
+import './Calendar.css';
 
 export default function MyCalendar() {
     const [date, setDate] = useState(new Date());
@@ -16,7 +17,7 @@ export default function MyCalendar() {
                 <Calendar
                     onChange={onChange}
                     value={date}
-                    className="rounded-md p-2"
+                    className="rounded-md p-2 border-gray-300"
                 />
             </div>
             <div className='scheduled-container p-4'>
