@@ -19,4 +19,9 @@
 .react-calendar .react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
     margin-right: 60%;
     font-weight: 600;
+    font-size: 19px;
+}
+
+.react-calendar {
+    border: none;
 }
