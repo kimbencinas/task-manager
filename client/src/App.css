@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 body {
-    background-image: url('C:/Users/exofa/projects/task-manager/task-manager/src/img/gradient-background.jpg');
+    background-image: url('C:/Users/exofa/projects/task-manager/task-manager/client/src/img/gradient-background.jpg');
     background-size: cover;
 
 }
