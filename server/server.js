@@ -1,5 +1,8 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
+const jwt = require('jsonwebtoken')
+
+app.use(express.json())
 
 app.get("/api", (req, res) => {
     res.json({ "tasks": ["taskOne", "taskTwo", "taskThree"] })
