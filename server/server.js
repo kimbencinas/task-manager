@@ -28,7 +28,25 @@ app.get("/api", (req, res) => {
 
 app.post("/api/login", (req, res) => {
     const username = req.body.username;
-    const user = { name: username };
+    const password = req.body.password;
+
+    db.query(
+        'SELECT * FROM users WHERE username = ? AND password = ?',
+        [username, password],
+        (err, results) => {
+            if (err) {
+                console.log(err);
+            } else {
+                if (results.length > 0) {
+                    const accessToken = jwt.sign({ username: username }, process.env.ACCESS_TOKEN_SECRET);
+                    res.json({ accessToken: accessToken });
+                } else {
+                    res.status(401).json({ error: 'Invalid user credentials' });
+                }
+            }
+        }
+    )
+
 });
 
 app.post('/api/tasks', (req, res) => {
