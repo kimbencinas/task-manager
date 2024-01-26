@@ -3,3 +3,11 @@ GET http://localhost:5000/api
 ########
 
 POST http://localhost:5000/api/localhost:5000/api/login
+
+########
+
+GET http://localhost:5000/api/tasks
+
+############
+
+POST http://localhost:5000/api/tasks

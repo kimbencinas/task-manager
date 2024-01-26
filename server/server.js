@@ -50,9 +50,31 @@ app.post("/api/login", (req, res) => {
 });
 
 app.post('/api/tasks', (req, res) => {
-    res.json({
+    const task_time = req.body.task_time;
+    const task_description = req.body.task_description;
 
-    });
+    db_query(
+        'INSERT INTO tasks (task_time, task_description VALUES (?, ?)',
+        [task_time, task_description],
+        (err, results) => {
+            if (err) {
+                console.log(error);
+            } else {
+                console.log(results);
+                res.json({ message: 'Task successfully added.' });
+            }
+        }
+    );
 });
+
+app.get('/api/tasks', (req, res) => {
+    db.query('SELECT * FROM tasks', (err, results) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json({ tasks: results });
+        }
+    })
+})
 
 app.listen(5000, () => { console.log("Server started on port 5000") });
