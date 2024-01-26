@@ -3,6 +3,7 @@ import CreateTask from './CreateTask';
 
 export default function MainContent() {
     const [currentDate, setCurrentDate] = useState('');
+    const [displayCreateTask, setDisplayCreateTask] = useState(false);
     const [taskDetails, setTaskDetails] = useState({
         task_time: '',
         task_description: '',
@@ -41,14 +42,18 @@ export default function MainContent() {
         }
     };
 
+    const toggleCreateTask = () => {
+        setDisplayCreateTask(!displayCreateTask);
+    };
+
     return (
         <div>
             <div className="main-content flex p-8 text-2xl">
                 <h1 className='current-day-title font-medium'>Today's Tasks</h1>
                 <button onClick={createTask} className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto">Create task</button>
-                <CreateTask />
             </div>
             <h3 className="todays-date ml-8 mb-2 text-lg">{currentDate}</h3>
+            {displayCreateTask && <CreateTask />}
         </div>
     );
 }
