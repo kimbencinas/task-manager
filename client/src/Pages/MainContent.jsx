@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CreateTask from './CreateTask';
 
 export default function MainContent() {
@@ -8,7 +9,6 @@ export default function MainContent() {
         task_time: '',
         task_description: '',
     });
-
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -20,8 +20,6 @@ export default function MainContent() {
         }, 1000);
         return () => clearInterval(intervalId);
     }, []);
-
-
 
     const createTask = async () => {
         try {
@@ -42,18 +40,15 @@ export default function MainContent() {
         }
     };
 
-    const toggleCreateTask = () => {
-        setDisplayCreateTask(!displayCreateTask);
-    };
-
     return (
         <div>
             <div className="main-content flex p-8 text-2xl">
                 <h1 className='current-day-title font-medium'>Today's Tasks</h1>
-                <button onClick={createTask} className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto">Create task</button>
+                <Link to="/create-task" className="ml-auto">
+                    <button onClick={createTask} className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto">Create task</button>
+                </Link>
             </div>
             <h3 className="todays-date ml-8 mb-2 text-lg">{currentDate}</h3>
-            {displayCreateTask && <CreateTask />}
         </div>
     );
 }
