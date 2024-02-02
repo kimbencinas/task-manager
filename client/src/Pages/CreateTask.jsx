@@ -14,8 +14,28 @@ export default function CreateTask() {
         }));
     };
 
+    const createTask = async (taskDetails) => {
+        try {
+            const response = await fetch('/api/tasks', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(taskDetails),
+            });
+            if (response.ok) {
+                console.log('Task successfully added.');
+            } else {
+                console.log('Task failed to be created.');
+            }
+        } catch (error) {
+            console.log('Error creating task', error);
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        createTask(taskDetails);
     }
 
     return (
@@ -30,9 +50,8 @@ export default function CreateTask() {
                         <input
                             type="text"
                             id="task_time"
-                            value={taskDetails.task_time}
                             onChange={handleInputChange}
-                            className="w-full rounded-md drop-shadow-lg h-8"
+                            className="w-full rounded-md drop-shadow-lg p-2"
                         />
                     </div>
                     <div className="mb-11 p-2">
@@ -42,9 +61,8 @@ export default function CreateTask() {
                         <input
                             type="text"
                             id="task_description"
-                            value={taskDetails.task_description}
                             onChange={handleInputChange}
-                            className="w-full rounded-md drop-shadow-lg h-8"
+                            className="w-full rounded-md drop-shadow-lg p-2"
                         />
                     </div>
                     <div className="flex justify-end">

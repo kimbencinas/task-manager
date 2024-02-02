@@ -53,7 +53,7 @@ app.post('/api/tasks', (req, res) => {
     const task_time = req.body.task_time;
     const task_description = req.body.task_description;
 
-    db_query(
+    db.query(
         'INSERT INTO tasks (task_time, task_description) VALUES (?, ?)',
         [task_time, task_description],
         (err, results) => {
