@@ -50,6 +50,8 @@ export default function CreateTask() {
                         <input
                             type="text"
                             id="task_time"
+                            name="task_time"
+                            value={taskDetails.task_time}
                             onChange={handleInputChange}
                             className="w-full rounded-md drop-shadow-lg p-2"
                         />
@@ -61,6 +63,8 @@ export default function CreateTask() {
                         <input
                             type="text"
                             id="task_description"
+                            name="task_description"
+                            value={taskDetails.task_description}
                             onChange={handleInputChange}
                             className="w-full rounded-md drop-shadow-lg p-2"
                         />

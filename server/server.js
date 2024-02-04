@@ -59,6 +59,7 @@ app.post('/api/tasks', (req, res) => {
         (err, results) => {
             if (err) {
                 console.log(error);
+                res.status(500).json({ error: 'Internal Server Error' });
             } else {
                 console.log(results);
                 res.json({ message: 'Task successfully added.' });
