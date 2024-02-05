@@ -4,7 +4,7 @@ const app = express();
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2');
 
-app.use(express.json())
+app.use(express.json());
 
 const db = mysql.createConnection({
     host: process.env.MYSQL_HOST,
