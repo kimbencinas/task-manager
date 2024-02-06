@@ -16,7 +16,7 @@ export default function CreateTask() {
 
     const createTask = async (taskDetails) => {
         try {
-            const response = await fetch('http://localhost:5000/api/tasks', {
+            const response = await fetch('/api/tasks', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +70,12 @@ export default function CreateTask() {
                         />
                     </div>
                     <div className="flex justify-end">
-                        <button type="submit" className="bg-blue-500 text-white rounded-xl text-md h-9 w-24 drop-shadow-lg">Submit</button>
+                        <button
+                            type="submit"
+                            onClick={handleSubmit}
+                            className="bg-blue-500 text-white rounded-xl text-md h-9 w-24 drop-shadow-lg">
+                            Submit
+                        </button>
                     </div>
                 </form>
             </div>

@@ -1,9 +1,12 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2');
 
+app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
@@ -58,7 +61,7 @@ app.post('/api/tasks', (req, res) => {
         [task_time, task_description],
         (err, results) => {
             if (err) {
-                console.log(error);
+                console.log(err);
                 res.status(500).json({ error: 'Internal Server Error' });
             } else {
                 console.log(results);
