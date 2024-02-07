@@ -21,7 +21,14 @@ export default function MainContent() {
     useEffect(() => {
         fetch("/api/tasks")
             .then(response => response.json())
-            .then(data => setTasks(data.tasks))
+            .then(data => {
+                const sortedTasks = data.tasks.sort((a, b) => {
+                    let timeA = new Date(a.task_time);
+                    let timeB = new Date(b.task_time);
+                    return timeA = timeB;
+                });
+                setTasks(sortedTasks);
+            })
             .catch(error => console.error(error))
     }, []);
 
