@@ -72,7 +72,9 @@ app.post('/api/tasks', (req, res) => {
 });
 
 app.get('/api/tasks', (req, res) => {
-    db.query('SELECT * FROM tasks', (err, results) => {
+    const currentDate = new Date().toISOString().slice(0, 10);
+
+    db.query('SELECT * FROM tasks WHERE DATE(task_time) = ?', [currentDate], (err, results) => {
         if (err) {
             console.log(err);
         } else {
