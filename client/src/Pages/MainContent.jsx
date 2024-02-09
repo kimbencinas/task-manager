@@ -32,6 +32,11 @@ export default function MainContent() {
             .catch(error => console.error(error))
     }, []);
 
+    function formatTime(time) {
+        const date = new Date(time);
+        return date.toLocaleDateString([], { hour: 'numeric', minute: '2-digit' });
+    }
+
     return (
         <div>
             <div className="main-content flex p-8 text-2xl">
@@ -42,7 +47,7 @@ export default function MainContent() {
             </div>
             <h3 className="todays-date ml-8 mb-2 text-lg">{currentDate}</h3>
             {tasks.map((task, index) => (
-                <Task key={index} time={task.task_time} taskDesc={task.task_description} />
+                <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} />
             ))}
         </div>
     );

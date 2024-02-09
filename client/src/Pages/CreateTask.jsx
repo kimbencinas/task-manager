@@ -48,7 +48,7 @@ export default function CreateTask() {
                             Task time:
                         </label>
                         <input
-                            type="text"
+                            type="time"
                             id="task_time"
                             name="task_time"
                             value={taskDetails.task_time}
