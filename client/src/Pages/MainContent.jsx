@@ -6,17 +6,29 @@ import Task from '../Components/Task';
 export default function MainContent() {
     const [currentDate, setCurrentDate] = useState('');
     const [tasks, setTasks] = useState([]);
+    const [mountDate, setMountDate] = useState('');
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             const date = new Date();
             let day = date.getDate();
             let month = date.toLocaleString('en-US', { month: 'long' });
+            const currentDateStr = `${month} ${day}`;
+            setCurrentDate(currentDateStr);
 
-            setCurrentDate(`${month} ${day}`);
+            if (currentDateStr !== mountDate) {
+                setTasks([]);
+                setMountDate(currentDateStr);
+            }
         }, 1000);
+
+        const date = new Date();
+        let day = date.getDate();
+        let month = date.toLocaleString('en-US', { month: 'long' });
+        setMountDate(`${month} ${day}`);
+
         return () => clearInterval(intervalId);
-    }, []);
+    }, [mountDate]);
 
     useEffect(() => {
         fetch("/api/tasks")
@@ -30,7 +42,7 @@ export default function MainContent() {
                 setTasks(sortedTasks);
             })
             .catch(error => console.error(error))
-    }, []);
+    }, [mountDate]);
 
     function formatTime(time) {
         const date = new Date(time);
