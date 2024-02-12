@@ -17,7 +17,6 @@ export default function MainContent() {
             setCurrentDate(currentDateStr);
 
             if (currentDateStr !== mountDate) {
-                setTasks([]);
                 setMountDate(currentDateStr);
             }
         }, 1000);
@@ -58,9 +57,11 @@ export default function MainContent() {
                 </Link>
             </div>
             <h3 className="todays-date ml-8 mb-2 text-lg">{currentDate}</h3>
-            {tasks.map((task, index) => (
-                <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} />
-            ))}
+            <div className="overflow-auto max-h-96">
+                {tasks.map((task, index) => (
+                    <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} />
+                ))}
+            </div>
         </div>
     );
 }
