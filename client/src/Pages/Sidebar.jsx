@@ -5,8 +5,7 @@ export default function Sidebar() {
 
     return (
         <div className="sidebar mt-2">
-            <h2>TaskZen</h2>
-            <img src={taskzen} />
+            <img src={taskzen} className="mt-4 scale-90" />
         </div>
     );
 }
