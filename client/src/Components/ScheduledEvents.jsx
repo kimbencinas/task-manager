@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function ScheduledEvents({ events }) {
-    const futureEvents = events.filter(event => new Date(event.task.time) > new Date());
+    const futureEvents = events.filter(event => new Date(event.task_time) > new Date());
 
     return (
         <div className="scheduled-events bg-white rounded-lg w-full p-4 mb-2">
