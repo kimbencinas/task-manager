@@ -12,6 +12,7 @@ import CreateTask from './Pages/CreateTask.jsx';
 import MainContent from './Pages/MainContent.jsx';
 import Sidebar from './Pages/Sidebar.jsx';
 import Login from './Pages/Login.jsx';
+import EventPage from './Pages/EventPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     path: '/login',
     element: <Login />
   },
+  {
+    path: '/events',
+    element: <EventPage />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
