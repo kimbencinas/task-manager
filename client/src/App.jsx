@@ -19,7 +19,7 @@ export default function App() {
     }, [])
 
     return (
-        <div className="app flex justify-center h-screen mt-5">
+        <div className="app flex justify-center h-screen">
             <div className="w-1/12 bg-white bg-opacity-50 ml-5 rounded-xl">
                 <Sidebar />
             </div>
