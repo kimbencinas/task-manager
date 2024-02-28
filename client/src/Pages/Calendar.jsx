@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import ScheduledEvents from '../Components/ScheduledEvents';
 import 'react-calendar/dist/Calendar.css';
 import './Calendar.css';
+import { Link } from 'react-router-dom';
 
 export default function MyCalendar() {
     const [date, setDate] = useState(new Date());
@@ -33,7 +34,9 @@ export default function MyCalendar() {
             <div className='scheduled-container p-4'>
                 <h4 className="mt-3 mb-2 font-medium text-lg">Scheduled</h4>
                 <ScheduledEvents events={events} />
-                <p className="text-blue-500 ml-40 mt-4">View all</p>
+                <Link to="/events">
+                    <p className="text-blue-500 ml-40 mt-4">View all</p>
+                </Link>
             </div>
         </div>
     );
