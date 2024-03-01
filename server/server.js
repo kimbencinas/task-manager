@@ -85,8 +85,26 @@ app.get('/api/tasks', (req, res) => {
 
 /*
 app.delete('/api/tasks', (req, res) => {
-
+    
 })
 */
+
+app.put('/api/tasks/:id', (req, res) => {
+    const taskId = req.params.id;
+    const { task_time, task_description } = req.body;
+
+    db.query(
+        'UPDATE tasks SET task_time = ?, task_description = ? WHERE id = ?',
+        [task_time, task_description, taskId],
+        (err, results) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(results);
+                res.json({ message: 'Task successfully updated.' });
+            }
+        }
+    )
+})
 
 app.listen(5000, () => { console.log("Server started on port 5000") });
