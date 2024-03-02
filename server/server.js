@@ -99,6 +99,7 @@ app.put('/api/tasks/:id', (req, res) => {
         (err, results) => {
             if (err) {
                 console.log(err);
+                res.status(500).json({ error: 'Internal server error ' });
             } else {
                 console.log(results);
                 res.json({ message: 'Task successfully updated.' });
