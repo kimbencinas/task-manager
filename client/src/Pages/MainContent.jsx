@@ -52,12 +52,12 @@ export default function MainContent() {
 
     return (
         <div>
-            <div className="main-content flex p-8 text-2xl">
+            <div className="main-content flex p-8 text-2xl gap-2">
                 <h1 className='current-day-title font-medium'>Today's Tasks</h1>
                 <Link to="/create-task" className="ml-auto">
                     <button className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto">Create task</button>
                 </Link>
-                <img src={trashicon} className="size-3" />
+                <img src={trashicon} className="size-9" />
             </div>
             <h3 className="todays-date ml-8 mb-2 text-lg">{currentDate}</h3>
             {tasks.map((task, index) => (
