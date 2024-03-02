@@ -13,10 +13,10 @@ export default function Sidebar() {
             <Link to="/">
                 <img src={taskzen} className="w-13" />
             </Link>
-            <img src={usericon} className="size-14" />
-            <img src={settingsicon} className="size-14" />
+            <img src={usericon} className="w-14" />
+            <img src={settingsicon} className="w-14" />
             <Link to="/create-task">
-                <img src={createtask} className="size-14" />
+                <img src={createtask} className="w-14" />
             </Link>
             <Link to="/events">
                 <img src={taskicon} className="w-36" />

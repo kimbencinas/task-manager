@@ -83,11 +83,23 @@ app.get('/api/tasks', (req, res) => {
     })
 })
 
-/*
-app.delete('/api/tasks', (req, res) => {
-    
+
+app.delete('/api/tasks/:id', (req, res) => {
+    const taskId = req.params.id;
+
+    db.query(
+        'DELETE FROM tasks WHERE id = ?',
+        [taskId],
+        (err, results) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json({ message: 'Task successfully deleted.' });
+            }
+        }
+    )
 })
-*/
+
 
 app.put('/api/tasks/:id', (req, res) => {
     const taskId = req.params.id;

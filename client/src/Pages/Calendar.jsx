@@ -31,8 +31,8 @@ export default function MyCalendar() {
                     className="rounded-md p-5"
                 />
             </div>
-            <div className='scheduled-container p-4'>
-                <h4 className="mt-3 mb-2 font-medium text-lg">Scheduled</h4>
+            <div className='scheduled-container p-6'>
+                <h4 className="mb-2 font-medium text-lg">Scheduled</h4>
                 <ScheduledEvents events={events} />
                 <Link to="/events">
                     <p className="text-blue-500 ml-40 mt-4">View all</p>

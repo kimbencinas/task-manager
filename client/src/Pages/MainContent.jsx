@@ -52,14 +52,14 @@ export default function MainContent() {
 
     return (
         <div>
-            <div className="main-content flex p-8 text-2xl gap-2">
+            <div className="main-content flex p-8 text-2xl gap-2 mt-4">
                 <h1 className='current-day-title font-medium'>Today's Tasks</h1>
                 <Link to="/create-task" className="ml-auto">
-                    <button className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto">Create task</button>
+                    <button className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto shadow-lg">Create task</button>
                 </Link>
                 <img src={trashicon} className="size-9" />
             </div>
-            <h3 className="todays-date ml-8 mb-2 text-lg">{currentDate}</h3>
+            <h3 className="todays-date ml-8 text-lg text-zinc-500 font-medium">{currentDate}</h3>
             {tasks.map((task, index) => (
                 <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} />
             ))}
