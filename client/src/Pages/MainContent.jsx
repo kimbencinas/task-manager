@@ -50,6 +50,22 @@ export default function MainContent() {
         return date.toLocaleDateString([], { hour: 'numeric', minute: '2-digit' });
     }
 
+    const handleDeleteTask = (taskId) => {
+        fetch(`/api/tasks/${taskId}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
+                } else {
+                    console.log('Failed to delete task.');
+                }
+            })
+            .catch(error => {
+                console.error('An error has occurred.', error);
+            });
+    };
+
     return (
         <div>
             <div className="main-content flex p-8 text-2xl gap-2 mt-4">
@@ -57,11 +73,13 @@ export default function MainContent() {
                 <Link to="/create-task" className="ml-auto">
                     <button className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto shadow-lg">Create task</button>
                 </Link>
-                <img src={trashicon} className="size-9" />
+                <button>
+                    <img src={trashicon} className="size-9" />
+                </button>
             </div>
             <h3 className="todays-date ml-8 text-lg text-zinc-500 font-medium">{currentDate}</h3>
             {tasks.map((task, index) => (
-                <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} />
+                <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} taskId={task.id} handleDeleteTask={handleDeleteTask} />
             ))}
         </div>
     );
