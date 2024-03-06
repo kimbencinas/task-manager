@@ -35,7 +35,7 @@ export default function MyCalendar() {
                 <h4 className="mb-2 font-medium text-lg">Scheduled</h4>
                 <ScheduledEvents events={events} />
                 <Link to="/events">
-                    <p className="text-blue-500 ml-40 mt-4">View all</p>
+                    <p className="text-blue-500 ml-48 mt-4">View all</p>
                 </Link>
             </div>
         </div>
