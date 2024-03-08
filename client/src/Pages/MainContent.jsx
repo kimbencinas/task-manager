@@ -8,6 +8,7 @@ export default function MainContent() {
     const [currentDate, setCurrentDate] = useState('');
     const [tasks, setTasks] = useState([]);
     const [mountDate, setMountDate] = useState('');
+    const [selectedTaskId, setSelectedTaskId] = useState(null);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -50,20 +51,28 @@ export default function MainContent() {
         return date.toLocaleDateString([], { hour: 'numeric', minute: '2-digit' });
     }
 
+    const handleSelectTask = (taskId) => {
+        setSelectedTaskId(taskId);
+    };
+
     const handleDeleteTask = (taskId) => {
-        fetch(`/api/tasks/${taskId}`, {
-            method: 'DELETE',
-        })
-            .then(response => {
-                if (response.ok) {
-                    setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
-                } else {
-                    console.log('Failed to delete task.');
-                }
+        if (selectedTaskId) {
+            fetch(`/api/tasks/${taskId}`, {
+                method: 'DELETE',
             })
-            .catch(error => {
-                console.error('An error has occurred.', error);
-            });
+                .then(response => {
+                    if (response.ok) {
+                        setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
+                    } else {
+                        console.log('Failed to delete task.');
+                    }
+                })
+                .catch(error => {
+                    console.error('An error has occurred.', error);
+                });
+        } else {
+            console.log("Select a task");
+        };
     };
 
     return (
@@ -73,13 +82,13 @@ export default function MainContent() {
                 <Link to="/create-task" className="ml-auto">
                     <button className="bg-black text-white rounded-lg p-2 text-sm h-9 ml-auto shadow-lg">Create task</button>
                 </Link>
-                <button>
+                <button onClick={handleDeleteTask}>
                     <img src={trashicon} className="size-9" />
                 </button>
             </div>
             <h3 className="todays-date ml-8 text-lg text-zinc-500 font-medium">{currentDate}</h3>
             {tasks.map((task, index) => (
-                <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} taskId={task.id} handleDeleteTask={handleDeleteTask} />
+                <Task key={index} time={formatTime(task.task_time)} taskDesc={task.task_description} taskId={task.id} handleSelectTask={handleSelectTask} />
             ))}
         </div>
     );
