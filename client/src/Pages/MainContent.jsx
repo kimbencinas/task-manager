@@ -76,7 +76,7 @@ export default function MainContent() {
     };
 
     return (
-        <div>
+        <div className='max-w-screen-lg mx-auto'>
             <div className="main-content flex p-8 text-2xl gap-2 mt-4">
                 <h1 className='current-day-title font-medium'>Today's Tasks</h1>
                 <Link to="/create-task" className="ml-auto">
