@@ -13,7 +13,7 @@ export default function Task({ time, taskDesc, taskId, handleSelectTask }) {
             <p className="text-gray-500 mr-5 mb-3">{time}</p>
             <div className="flex items-center mb-2">
                 <input
-                    type="radio"
+                    type="checkbox"
                     className="ml-16"
                     onChange={handleRadioSelect}
                     checked={selectedTaskId === taskId}
