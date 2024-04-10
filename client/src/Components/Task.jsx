@@ -14,7 +14,7 @@ export default function Task({ time, taskDesc, taskId, handleSelectTask }) {
             <div className="flex items-center mb-2">
                 <input
                     type="checkbox"
-                    className="ml-16"
+                    className="ml-16 mr-5"
                     onChange={handleRadioSelect}
                     checked={selectedTaskId === taskId}
                 />
